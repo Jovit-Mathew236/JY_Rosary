@@ -49,6 +49,7 @@
 }
 .header nav a {
   color: black;
+  text-decoration: none;
 }
 .header nav a:hover,
 .header nav a:active {
@@ -120,6 +121,10 @@
     top: 2rem;
     right: 2rem;
   }
+  .header nav a {
+    font-size: 3rem;
+    color: white;
+  }
   .header .responsive_nav {
     transform: none;
     -webkit-backdrop-filter: blur(10px);
@@ -128,6 +133,9 @@
   .header .nav-btn {
     visibility: visible;
     opacity: 1;
+  }
+  .header .nav-btn:hover {
+    background: #ebebeb;
   }
   .header .access-code * {
     display: none;
