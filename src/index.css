@@ -6,17 +6,26 @@
 }
 
 .page-container {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   font-family: "Poppins", sans-serif;
 }
+.page-container .bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+}
 
 .header {
+  z-index: 5;
   display: flex;
   padding: 1rem;
+  align-items: center;
   justify-content: space-between;
   background: #e9efff;
+  height: 3rem;
 }
 .header .logo {
   font-family: "Poppins", sans-serif;
@@ -24,21 +33,37 @@
   font-size: 0.9rem;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 .header .logo img {
   width: 2rem;
 }
 .header nav {
-  color: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;
-  gap: 2rem;
+  color: rgba(0, 0, 0, 0);
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  font-weight: 500;
 }
 .header nav a {
-  color: #000;
+  color: black;
 }
-.header nav a:hover {
+.header nav a:hover,
+.header nav a:active {
   color: #0c6cff;
+}
+.header .nav-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
 }
 .header .access-code {
   display: flex;
@@ -46,14 +71,65 @@
   gap: 1rem;
 }
 .header .access-code .btn {
+  font-family: "poppins";
+  font-weight: 500;
   color: white;
   background: #0c6cff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
 }
 .header .access-code input {
+  border: 0px solid transparent;
   border-radius: 5px;
-  padding: 10px 10px;
+  padding: 0.5rem 1rem;
   color: #000;
+}
+
+@media only screen and (max-width: 1024px) {
+  .page-container .bg {
+    height: 100vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header .logo {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .header .logo img {
+    width: 1.3rem;
+  }
+  .header nav {
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    transition: 0.5s;
+    transform: translateY(-100vh);
+  }
+  .header nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+  .header .responsive_nav {
+    transform: none;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+  }
+  .header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+  .header .access-code * {
+    display: none;
+  }
 }/*# sourceMappingURL=index.css.map */
