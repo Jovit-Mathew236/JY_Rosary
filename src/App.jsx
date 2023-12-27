@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Page1 from './pages/Section1';
-import Page2 from './pages/Section2';
+import Section1 from './pages/Section1';
+import Section2 from './pages/Section2';
 import './App.css';
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRef } from 'react';
+
 function App() {
   const navRef = useRef();
   const showNavBar = () => {
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <div className="page-container">
-        <img className='bg' src="https://img.freepik.com/premium-photo/map-vancouver-with-red-pin-pointing-left_866663-10517.jpg" alt="bg" />
+        
         <div className="header">
 
           <div className="logo">
@@ -35,8 +36,9 @@ function App() {
           </div>
         </div>
         {/* add landing page components here */}
-        <Page1 />
-        <Page2 />
+        <Section1 />
+        <Section2 />
+      
       </div >
     </>
   )

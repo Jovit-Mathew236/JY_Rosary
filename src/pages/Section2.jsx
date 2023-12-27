@@ -1,7 +1,9 @@
 import React from 'react'
-
+import Map from '../Components/map/Map'
 export default function Section2() {
   return (
-    <div>Section2</div>
+    <div className="container">
+      <Map/>
+    </div>
   )
 }

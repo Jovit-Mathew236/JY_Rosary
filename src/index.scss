@@ -7,21 +7,16 @@
 }
 
 .page-container {
-
     display: flex;
     flex-direction: column;
-
     font-family: 'Poppins', sans-serif;
 
+
     .bg {
-        position: fixed;
-        left: 0;
-        top: 0;
         z-index: -1;
         width: 100%;
     }
 }
-
 .header {
     z-index: 5;
     display: flex;
@@ -35,7 +30,6 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
         font-size: .9rem;
-
         display: flex;
         gap: 10px;
         align-items: center;
@@ -44,7 +38,6 @@
             width: 2rem;
         }
     }
-
     nav {
             display: flex;
             align-items: center;
@@ -58,7 +51,6 @@
             color: black;
             text-decoration: none;
         }
-
         a:hover,
         a:active {
             color: #0c6cff;
@@ -103,7 +95,6 @@
 
 }
 
-
 @media only screen and (max-width: 1024px) {
     .page-container {
 
@@ -112,7 +103,6 @@
             object-fit: cover;
         }
     }
-
     .header {
 
         flex-direction: column;
@@ -140,18 +130,17 @@
             transition: .5s;
             transform: translateY(-100vh);
             
-           
-
             .nav-close-btn {
                 position: absolute;
                 top: 2rem;
                 right: 2rem;
-            
-
             }
             a{  
-                font-size: 3rem;
+                font-size: 2rem;
                 color: #ffff;
+            }
+            a:hover{
+                transform: scale(1.5);
             }
 
         }
@@ -166,7 +155,8 @@
 
         }
         .nav-btn:hover{
-            background: #ebebeb;
+            transform: scale(1.5);
+            transition: ease-in-out;
         }
 
         .access-code {
@@ -176,4 +166,34 @@
 
         }
     }
+}
+
+// PAGES---------
+.container{
+    display: flex;
+    flex-direction: column;
+
+}
+//maps
+#map-container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background: #000;
+}
+.leaflet-container{
+    height: 600px;
+    width: 30%;
+}
+.cluster-icon{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    padding: .4rem;
+    color: #ffff;
+    background: radial-gradient(circle,rgba(34,124,201,1)  0%, rgba(48,128,202,1) 56%, rgba(46,109,150,1) 100%);
 }
