@@ -8,18 +8,62 @@ export default function Map() {
   const zoom = 7;
   const markers = [
     {
-      geocode: [10.25146355102299, 76.73898835453463],
-      title: "blah"
+      geocode: [10.0122, 76.3562],
+      title: "Thiruvananthapuram"
     },
     {
-      geocode: [10.729300800672455, 76.33663330426945],
-      title: "thrissur"
+      geocode: [10.5328, 76.2149],
+      title: "Kollam"
     },
     {
-      geocode: [9.26787101629468, 76.94277857479881],
-      title: "kollam"
+      geocode: [10.6766, 76.8422],
+      title: "Pathanamthitta"
+    },
+    {
+      geocode: [10.0862, 76.3423],
+      title: "Alappuzha"
+    },
+    {
+      geocode: [10.5941, 76.6413],
+      title: "Kottayam"
+    },
+    {
+      geocode: [10.1520, 76.4088],
+      title: "Idukki"
+    },
+    {
+      geocode: [10.8505, 76.2711],
+      title: "Ernakulam"
+    },
+    {
+      geocode: [10.4505, 76.1232],
+      title: "Thrissur"
+    },
+    {
+      geocode: [10.9785, 76.5761],
+      title: "Palakkad"
+    },
+    {
+      geocode: [10.3276, 76.1244],
+      title: "Malappuram"
+    },
+    {
+      geocode: [10.5256, 76.2664],
+      title: "Kozhikode"
+    },
+    {
+      geocode: [10.2054, 76.1915],
+      title: "Wayanad"
+    },
+    {
+      geocode: [10.4020, 76.5389],
+      title: "Kannur"
+    },
+    {
+      geocode: [10.7618, 76.3459],
+      title: "Kasaragod"
     }
-  ]
+  ];
   const createCustomClusterIcon= (cluster)=>{
     return new divIcon({
       html:`<div>${cluster.getChildCount()}</div>`,

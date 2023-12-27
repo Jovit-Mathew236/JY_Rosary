@@ -11,8 +11,10 @@
   font-family: "Poppins", sans-serif;
 }
 .page-container .bg {
+  position: absolute;
   z-index: -1;
   width: 100%;
+  height: 100vh;
 }
 
 .header {
@@ -142,16 +144,42 @@
     display: none;
   }
 }
-.container {
+.section1 {
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section1 .heading {
+  width: 30%;
+  padding: 1rem;
+}
+.section1 .section1-title {
+  font-weight: 600;
+  line-height: 0.8;
+  color: #273e6c;
+  font-size: 5rem;
+}
+.section1 .section1-subtitle {
+  color: #399ebc;
+  line-height: 7rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.section1 .section1-desc {
+  color: #34a4a7;
+}
+.section1 .video {
+  width: 30rem;
+  height: 20rem;
+  border-radius: 20px;
 }
 
 #map-container {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
-  background: #000;
 }
 
 .leaflet-container {
