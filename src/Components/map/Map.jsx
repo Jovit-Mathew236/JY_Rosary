@@ -64,6 +64,15 @@ export default function Map() {
       title: "Kasaragod"
     }
   ];
+  const [currentLocation,setCurrentLocation] = useState([10.7618, 76.3459]);
+
+  React.useEffect(()=>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+      console.log(position.coords.latitude+"----"+position.coords.longitude)
+      setCurrentLocation([position.coords.latitude,position.coords.longitude])
+    })
+  })
+
   const createCustomClusterIcon= (cluster)=>{
     return new divIcon({
       html:`<div>${cluster.getChildCount()}</div>`,
@@ -90,14 +99,15 @@ export default function Map() {
         <MarkerClusterGroup 
         chunkedLoading
         iconCreateFunction={createCustomClusterIcon}> 
-          {markers.map(marker =>
-            // "icon={customIcon}" use this for custom icon
-            <Marker position={marker.geocode} >
+          {/* {markers.map(marker => */}
+             {/* "icon={customIcon}" use this for custom icon */}
+            <Marker position={currentLocation}>
               <Popup>
-                {marker.title}
+                blaah
+                {/* {marker.title} */}
               </Popup>
             </Marker>
-          )}
+          {/* )} */}
         </MarkerClusterGroup>
 
 
