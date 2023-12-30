@@ -9,7 +9,7 @@ export default function Section1() {
         <p className="section1-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, molestiae! Ratione itaque culpa, eaque laboriosam praesentium eos, expedita animi, tempora quaerat debitis sed odit! Blanditiis vero dolores debitis provident soluta.</p>
       </div>
       <iframe className="video"
-         src="https://youtu.be/m77D52rIwVE?si=7wbqRbslHPatUm49">
+         src="https://www.youtube.com/watch?v=m77D52rIwVE">
       </iframe>
       {/* <img className='bg' src="https://img.freepik.com/premium-photo/map-vancouver-with-red-pin-pointing-left_866663-10517.jpg" alt="bg" /> */}
     </div>
