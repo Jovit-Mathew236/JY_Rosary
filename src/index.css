@@ -13,14 +13,13 @@
 .page-container .bg {
   position: absolute;
   z-index: -1;
-  width: 100%;
   height: 100vh;
 }
 
 .header {
   z-index: 5;
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   align-items: center;
   justify-content: space-between;
   background: #e9efff;
@@ -86,6 +85,61 @@
   color: #000;
 }
 
+.section1 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section1 .heading {
+  width: 30%;
+  padding: 1rem;
+}
+.section1 .section1-title {
+  font-weight: 600;
+  color: #273e6c;
+  font-size: 5rem;
+}
+.section1 .section1-subtitle {
+  color: #399ebc;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.section1 .section1-desc {
+  color: #34a4a7;
+}
+.section1 .video {
+  width: 30rem;
+  height: 20rem;
+  border-radius: 20px;
+}
+
+#map-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.leaflet-container {
+  height: 600px;
+  width: 30%;
+}
+
+.cluster-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  padding: 0.4rem;
+  color: white;
+  background: radial-gradient(circle, rgb(34, 124, 201) 0%, rgb(48, 128, 202) 56%, rgb(46, 109, 150) 100%);
+}
+
 @media only screen and (max-width: 1024px) {
   .page-container .bg {
     height: 100vh;
@@ -122,7 +176,7 @@
   }
   .header nav a {
     font-size: 2rem;
-    color: white;
+    color: #283e71;
   }
   .header nav a:hover {
     transform: scale(1.5);
@@ -143,59 +197,32 @@
   .header .access-code * {
     display: none;
   }
-}
-.section1 {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.section1 .heading {
-  width: 30%;
-  padding: 1rem;
-}
-.section1 .section1-title {
-  font-weight: 600;
-  line-height: 0.8;
-  color: #273e6c;
-  font-size: 5rem;
-}
-.section1 .section1-subtitle {
-  color: #399ebc;
-  line-height: 7rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-.section1 .section1-desc {
-  color: #34a4a7;
-}
-.section1 .video {
-  width: 30rem;
-  height: 20rem;
-  border-radius: 20px;
-}
-
-#map-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
-
-.leaflet-container {
-  height: 600px;
-  width: 30%;
-}
-
-.cluster-icon {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 600;
-  padding: 0.4rem;
-  color: white;
-  background: radial-gradient(circle, rgb(34, 124, 201) 0%, rgb(48, 128, 202) 56%, rgb(46, 109, 150) 100%);
+  .section1 {
+    flex-wrap: wrap;
+  }
+  .section1 .heading {
+    width: 100vw;
+  }
+  .section1 .section1-title {
+    line-height: 50px;
+    font-size: 4rem;
+    padding: 20px 0;
+  }
+  .section1 .section1-subtitle {
+    margin: 0;
+  }
+  .section1 .video {
+    width: 18rem;
+    height: 11rem;
+  }
+  .section2 {
+    flex-wrap: wrap;
+  }
+  .section2 #map-container {
+    justify-content: center;
+  }
+  .section2 #map-container .leaflet-container {
+    width: 70%;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=index.css.map */

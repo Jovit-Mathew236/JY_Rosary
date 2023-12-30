@@ -4,9 +4,9 @@ export default function Section1() {
   return (
     <div className="section1">
       <div className="heading">
-        <div className="section1-title">Sacred Journey:</div>
-        <div className="section1-subtitle">Pray with Mama Mary</div>
-        <div className="section1-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, molestiae! Ratione itaque culpa, eaque laboriosam praesentium eos, expedita animi, tempora quaerat debitis sed odit! Blanditiis vero dolores debitis provident soluta.</div>
+        <h1 className="section1-title">Sacred Journey:</h1>
+        <h3 className="section1-subtitle">Pray with Mama Mary</h3>
+        <p className="section1-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, molestiae! Ratione itaque culpa, eaque laboriosam praesentium eos, expedita animi, tempora quaerat debitis sed odit! Blanditiis vero dolores debitis provident soluta.</p>
       </div>
       <iframe className="video">
          {/* src="https://www.youtube.com/embed/tgbNymZ7vqY"> */}
