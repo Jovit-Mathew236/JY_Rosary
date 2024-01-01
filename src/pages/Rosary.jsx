@@ -122,7 +122,7 @@ const Rosary = () => {
             </div>
         </>
     );
-
+}
 
 export default Rosary;
 
