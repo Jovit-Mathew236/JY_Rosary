@@ -1,68 +1,52 @@
-import { useEffect } from 'react';
-import '../firebase'
-import { getFirestore, addDoc, collection, getDoc } from "firebase/firestore"
+import { useEffect, useState } from 'react';
+import firebase from './../firebase/config';
 import { useParams } from 'react-router-dom';
+
 const Rosary = () => {
-    const { token } = useParams()
-    const db = getFirestore();
-    
-    //fetch
-    const fetchData = async () => {
-      try {
-        const rosariesCollection = collection(db, 'rosaries');
-        const snapshot = await getDocs(rosariesCollection);
+    const { token } = useParams();
+    const [rosaries, setRosaries] = useState(null);
 
-        const data = [];
-        snapshot.forEach((doc) => {
-          // Assuming your Firestore document has fields named field1 and field2
-          const { decades, location, zone, name } = doc.data();
-          data.push({
-            decades,
-            location,
-            zone,
-            name,
-          });
-        });
-
-        setStoredValues(data);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    }
-
-    
-    //used for url parameter 
- 
     useEffect(() => {
-        fetchData()
-    }, [token])
+        const fetchRosaryData = async () => {
+            try {
+                if (token) {
+                    const snapshot = await firebase.firestore().collection('rosary').doc(token).get();
+                    const allDocs = snapshot.data();
 
+                    setRosaries(allDocs);
+                    console.log(allDocs);
+                } else {
+                    console.log("Token is undefined");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchRosaryData();
+    }, [token]);
     return (
         <>
-            {/* <div className="form">
+            <div className="form">
                 <h1>Save Data to Firebase Firestore</h1>
-                <input
-                    type="text"
-                    value={inputValue1}
-                    onChange={(e) => setInputValue1(e.target.value)}
-                />
-                <input
-                    type="text"
-                    value={inputValue2}
-                    onChange={(e) => setInputValue2(e.target.value)}
-                />
-                <button onClick={saveDataToFirestore}>Save to Firestore</button>
-            </div>*/}
+                <form>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" id="name" />
+                    <label htmlFor="id">ID</label>
+                    <input type="text" id="id" />
+                    <button type="submit">Save</button>
+                </form>
+            </div>
             <div className="data">
                 <h2>Stored Values</h2>
-                <ul>
-                    {storedValues.map((value, index) => (
-                        <li key={index}>
-                            Field1: {value.zone}, Field2: {value.name}
-                        </li>
-                    ))}
-                </ul>
-                
+                {rosaries === null ? (
+                    <p>Loading...</p>
+                ) : (
+                    <ul>
+                        <li>name: {rosaries?.name}, id: {token}</li>
+                    </ul>
+                )}
+
                 <h1>Rosary:</h1>
                 <h3>Zone:</h3>
                 <h3>Location:</h3>
@@ -70,7 +54,6 @@ const Rosary = () => {
                     <li>lat: long:</li>
                 </ul>
             </div>
-ijk
         </>
     );
 }

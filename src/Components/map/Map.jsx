@@ -68,7 +68,7 @@ export default function Map() {
 
   React.useEffect(()=>{
     navigator.geolocation.getCurrentPosition((position)=>{
-      console.log(position.coords.latitude+"----"+position.coords.longitude)
+      // console.log(position.coords.latitude+"----"+position.coords.longitude)
       setCurrentLocation([position.coords.latitude,position.coords.longitude])
     })
   })
