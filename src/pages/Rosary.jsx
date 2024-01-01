@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import firebase from './../firebase/config';
 import { useParams } from 'react-router-dom';
@@ -48,10 +49,12 @@ const Rosary = () => {
                     decades: parseInt(rosaries.decades) + parseInt(values.decades),
                     zone: rosaries.zone,
                     location: rosaries.location,
+
                     users: Array.isArray(rosaries.users)
                         ? [...rosaries.users, { name: values.name, decades: values.decades }]
                         : [{ name: values.name, decades: values.decades }],
                 });
+
 
 
                 fetchRosaryData();
@@ -62,6 +65,7 @@ const Rosary = () => {
             console.error(err);
         }
     };
+
 
 
     return (
@@ -118,7 +122,7 @@ const Rosary = () => {
             </div>
         </>
     );
-};
+}
 
 export default Rosary;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import MarkerClusterGroup from 'react-leaflet-cluster'
@@ -66,12 +66,12 @@ export default function Map() {
   ];
   const [currentLocation,setCurrentLocation] = useState([10.7618, 76.3459]);
 
-  React.useEffect(()=>{
+  useEffect(()=>{
     navigator.geolocation.getCurrentPosition((position)=>{
       // console.log(position.coords.latitude+"----"+position.coords.longitude)
       setCurrentLocation([position.coords.latitude,position.coords.longitude])
     })
-  })
+  },[])
 
   const createCustomClusterIcon= (cluster)=>{
     return new divIcon({
