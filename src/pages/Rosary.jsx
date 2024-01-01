@@ -49,14 +49,13 @@ const Rosary = () => {
                     decades: parseInt(rosaries.decades) + parseInt(values.decades),
                     zone: rosaries.zone,
                     location: rosaries.location,
-                    users: [
-                        ...rosaries.users,
-                        {
-                            name: values.name,
-                            decades: values.decades,
-                        }
-                    ]
+
+                    users: Array.isArray(rosaries.users)
+                        ? [...rosaries.users, { name: values.name, decades: values.decades }]
+                        : [{ name: values.name, decades: values.decades }],
                 });
+
+
 
                 fetchRosaryData();
             } else {
@@ -66,7 +65,64 @@ const Rosary = () => {
             console.error(err);
         }
     };
-};
+
+
+
+    return (
+        <>
+            <div className="form">
+                <h1>Save Data to Firebase Firestore</h1>
+                <Form
+                    form={form}
+                    layout="vertical"
+                    initialValues={{
+                        requiredMarkValue: requiredMark,
+                    }}
+                    onValuesChange={onRequiredTypeChange}
+                    requiredMark={requiredMark === 'customize' ? customizeRequiredMark : requiredMark}
+                    onFinish={handleFormSubmit}
+                >
+                    <Form.Item label="Name" name="name" required tooltip="This is a required field">
+                        <Input placeholder="Full name" />
+                    </Form.Item>
+                    <Form.Item
+                        label="Decades"
+                        name="decades"
+                        required
+                        tooltip={{
+                            title: 'Tooltip with customize icon',
+                        }}
+                    >
+                        <Input placeholder="Decades" />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+
+            <div className="data">
+                <h2>Your Rosary</h2>
+                {rosaries === null ? (
+                    <p>Loading...</p>
+                ) : (
+                    <ul>
+                        <li>Name: {rosaries?.name}, Decades: {rosaries.decades}, Zone: {rosaries.zone}</li>
+                    </ul>
+                )}
+
+                <h1>Rosary:</h1>
+                <h3>Zone:</h3>
+                <h3>Location:</h3>
+                <ul>
+                    <li>lat: long:</li>
+                </ul>
+            </div>
+        </>
+    );
+
 
 export default Rosary;
 
