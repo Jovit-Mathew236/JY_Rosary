@@ -16,7 +16,7 @@ const Home = () => {
                 <div className="header">
                     <div className="logo">
                         <img src="/assets/images/marylogo.png" alt="logo" />
-                        <h1>PrayLink</h1>
+                        <h1>Knights of the Kingdom</h1>
                     </div>
 
                     <nav ref={navRef}>
@@ -33,6 +33,7 @@ const Home = () => {
                     </div>
                 </div>
                 {/* add landing page components here */}
+                hiiii
                 <Section1 />
                 <Section2 />
             </div >
