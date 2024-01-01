@@ -42,30 +42,27 @@ const Rosary = () => {
 
     const handleFormSubmit = async (values) => {
         try {
-          if (token) {
-            await firebase.firestore().collection('rosary').doc(token).set({
-                name: rosaries.name,
-                decades: parseInt(rosaries.decades) + parseInt(values.decades),
-                zone: rosaries.zone,
-                location: rosaries.location,
-                users:[
-                    ...rosaries.users,
-                    {
-                        name: values.name,
-                        decades: values.decades,
-                    }
-                ]
-            });
-      
-            fetchRosaryData();
-          } else {
-            console.log('Token is undefined');
-          }
+            if (token) {
+                await firebase.firestore().collection('rosary').doc(token).set({
+                    name: rosaries.name,
+                    decades: parseInt(rosaries.decades) + parseInt(values.decades),
+                    zone: rosaries.zone,
+                    location: rosaries.location,
+                    users: Array.isArray(rosaries.users)
+                        ? [...rosaries.users, { name: values.name, decades: values.decades }]
+                        : [{ name: values.name, decades: values.decades }],
+                });
+
+
+                fetchRosaryData();
+            } else {
+                console.log('Token is undefined');
+            }
         } catch (err) {
-          console.error(err);
+            console.error(err);
         }
-      };
-      
+    };
+
 
     return (
         <>
